@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Availability {
+  createdAt: DateTime!
+  day: Float!
+  id: String!
+  localEndHour: Float!
+  localEndMinute: Float!
+  localStartHour: Float!
+  localStartMinute: Float!
+  timezone: String!
+  updatedAt: DateTime!
+  user: User!
+  userId: String!
+}
+
+input AvailabilityInput {
+  day: Float!
+  localEndHour: Float!
+  localEndMinute: Float!
+  localStartHour: Float!
+  localStartMinute: Float!
+  timezone: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  replaceAvailability(availabilities: [AvailabilityInput!]!, userId: String!): [Availability!]!
+}
+
+type Query {
+  getToken(userId: String!): TokenResponse!
+  getUser(userId: String!): User!
+}
+
+type TokenResponse {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+}
+
+type User {
+  createdAt: DateTime!
+  email: String
+  firstName: String
+  id: String!
+  lastName: String
+  updatedAt: DateTime!
+}
